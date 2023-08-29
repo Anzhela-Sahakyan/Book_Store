@@ -4,7 +4,7 @@ export const booksMockData: Book[] = [
   {
     name: "The Great Gatsby",
     description: "A story of wealth, decadence, and the American Dream.",
-    price: 12.99,
+    price: 25,
     discount: 15,
     img: "https://m.media-amazon.com/images/M/MV5BMTkxNTk1ODcxNl5BMl5BanBnXkFtZTcwMDI1OTMzOQ@@._V1_.jpg",
   },
@@ -12,15 +12,15 @@ export const booksMockData: Book[] = [
     name: "To Kill a Mockingbird",
     description:
       "A novel depicting the unjust treatment of a black man in the 1930s Deep South.",
-    price: 9.5,
+    price: 95,
     discount: 10,
-    img: "https://upload.wikimedia.org/wikipedia/commons/4/4f/To_Kill_a_Mockingbird_%28first_edition_cover%29.jpg",
+    img: "https://m.media-amazon.com/images/M/MV5BNmVmYzcwNzMtMWM1NS00MWIyLThlMDEtYzUwZDgzODE1NmE2XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_.jpg",
   },
   {
     name: "1984",
     description:
       "A dystopian tale of a totalitarian society where individuality is suppressed.",
-    price: 15.0,
+    price: 15,
     discount: 30,
     img: "https://m.media-amazon.com/images/I/41gH8Q32oFL.jpg",
   },
@@ -28,7 +28,7 @@ export const booksMockData: Book[] = [
     name: "Pride and Prejudice",
     description:
       "A classic romantic novel revolving around societal norms and expectations.",
-    price: 8.75,
+    price: 10,
     discount: 50,
     img: "https://m.media-amazon.com/images/I/71Q1tPupKjL._AC_UF894,1000_QL80_.jpg",
   },
@@ -43,7 +43,7 @@ export const booksMockData: Book[] = [
     name: "Harry Potter and the Sorcerer's Stone",
     description:
       "The first book in the beloved fantasy series about a young wizard's adventures.",
-    price: 22.5,
+    price: 22,
     discount: 25,
     img: "https://upload.wikimedia.org/wikipedia/en/6/6b/Harry_Potter_and_the_Philosopher%27s_Stone_Book_Cover.jpg",
   },
@@ -51,7 +51,7 @@ export const booksMockData: Book[] = [
     name: "Brave New World",
     description:
       "A novel exploring a futuristic society driven by technological advancements and control.",
-    price: 14.99,
+    price: 39,
     discount: 12,
     img: "https://upload.wikimedia.org/wikipedia/en/6/62/BraveNewWorld_FirstEdition.jpg",
   },
@@ -66,7 +66,7 @@ export const booksMockData: Book[] = [
     name: "Jane Eyre",
     description:
       "A Gothic romance novel portraying the life and struggles of an orphaned governess.",
-    price: 11,
+    price: 90,
     discount: 22,
     img: "https://pictures.abebooks.com/isbn/9780140623253-us.jpg",
   },
@@ -74,7 +74,7 @@ export const booksMockData: Book[] = [
     name: "The Lord of the Rings",
     description:
       "A legendary fantasy trilogy that chronicles the battle between good and evil.",
-    price: 27.99,
+    price: 28,
     discount: 30,
     img: "https://m.media-amazon.com/images/I/71jLBXtWJWL._AC_UF1000,1000_QL80_.jpg",
   },

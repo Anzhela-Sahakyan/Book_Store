@@ -1,4 +1,4 @@
-import { Box, Card, CardContent } from "@mui/material";
+import { Box, Card, CardContent, Stack } from "@mui/material";
 import Book from "../Types/Book";
 import CardMedia from "../Common/CardMedia";
 import Typography from "../Common/Typography";
@@ -12,35 +12,77 @@ interface BookCardProps {
 }
 
 export default function BookCard({ book }: BookCardProps) {
-  const { name, img, price, discount, id } = book;
+  const { name, img, price, discount = 0, id } = book;
+
+  const priceAfterDiscount = price - price * (discount / 100);
+
   return (
     <Link to={`/books/${id}`}>
       <Card
         sx={{
-          minWidth: "200px",
-          height: "300px",
+          minWidth: "300px",
+          height: "450px",
           maxWidth: "200px",
 
           border: "1px #c4cecb solid",
+
+          position: "relative",
         }}
       >
+        <Box
+          sx={{
+            position: "absolute",
+            top: "10px",
+            left: "15px",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            width: "45px",
+            backgroundColor: "#f24134",
+            borderRadius: "4px",
+          }}
+        >
+          {!!discount && `${discount} %`}
+        </Box>
+
         <Box display="flex" justifyContent="flex-end" padding="10px">
           <EditIcon />
           <ClearIcon />
         </Box>
+
         <Box display="flex" justifyContent="center">
           <CardMedia
             src={img}
             sx={{
-              maxWidth: "100px",
+              maxWidth: "200px",
               maxHeight: "300px",
             }}
           />
         </Box>
         <CardContent>
-          <Typography>{name}</Typography>
+          <Box display="flex" justifyContent="space-between">
+            <Typography>{name}</Typography>
+            <Stack
+              sx={{
+                bottom: "10px",
+                right: "15px",
+                justifyContent: "flex-end",
+              }}
+            >
+              <Typography
+                sx={{
+                  textDecoration: discount ? "line-through" : null,
+                  textDecorationColor: "red",
+                }}
+              >{`$${price}`}</Typography>
+              {!!discount && (
+                <Typography
+                  sx={{ color: "red" }}
+                >{`$${priceAfterDiscount}`}</Typography>
+              )}
+            </Stack>
+          </Box>
         </CardContent>
-        {price} {discount}
       </Card>
     </Link>
   );
