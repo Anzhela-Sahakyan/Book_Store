@@ -3,7 +3,8 @@ import Book from "../Types/Book";
 export const booksMockData: Book[] = [
   {
     name: "The Great Gatsby",
-    description: "A story of wealth, decadence, and the American Dream.",
+    description:
+      "The Great Gatsby is a classic novel penned by F. Scott Fitzgerald, capturing the opulent yet tumultuous era of the Roaring Twenties. Set against the backdrop of the lavish Long Island mansions and dazzling parties, the story unfolds through the eyes of Nick Carraway. He becomes entangled in the enigmatic world of Jay Gatsby, a mysterious millionaire who throws extravagant parties to win back the heart of his former love, Daisy Buchanan. As the narrative delves into themes of wealth, love, and the American Dream, it exposes the shallowness and decadence of society. Fitzgerald's lyrical prose and intricate character development paint a vivid portrait of an era marked by excess and disillusionment, making The Great Gatsby a timeless exploration of the pursuit of happiness and the emptiness that can lie beneath the surface of material success.",
     price: 25,
     discount: 15,
     img: "https://m.media-amazon.com/images/M/MV5BMTkxNTk1ODcxNl5BMl5BanBnXkFtZTcwMDI1OTMzOQ@@._V1_.jpg",
@@ -14,7 +15,7 @@ export const booksMockData: Book[] = [
       "A novel depicting the unjust treatment of a black man in the 1930s Deep South.",
     price: 95,
     discount: 10,
-    img: "https://m.media-amazon.com/images/M/MV5BNmVmYzcwNzMtMWM1NS00MWIyLThlMDEtYzUwZDgzODE1NmE2XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_.jpg",
+    img: "https://upload.wikimedia.org/wikipedia/commons/4/4f/To_Kill_a_Mockingbird_%28first_edition_cover%29.jpg",
   },
   {
     name: "1984",
@@ -66,7 +67,7 @@ export const booksMockData: Book[] = [
     name: "Jane Eyre",
     description:
       "A Gothic romance novel portraying the life and struggles of an orphaned governess.",
-    price: 90,
+    price: 9,
     discount: 22,
     img: "https://pictures.abebooks.com/isbn/9780140623253-us.jpg",
   },
@@ -74,7 +75,7 @@ export const booksMockData: Book[] = [
     name: "The Lord of the Rings",
     description:
       "A legendary fantasy trilogy that chronicles the battle between good and evil.",
-    price: 28,
+    price: 27.99,
     discount: 30,
     img: "https://m.media-amazon.com/images/I/71jLBXtWJWL._AC_UF1000,1000_QL80_.jpg",
   },
