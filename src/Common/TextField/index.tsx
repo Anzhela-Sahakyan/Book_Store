@@ -10,6 +10,7 @@ interface TextFieldProps {
   onChange?: MuiTextFieldProps["onChange"];
   value?: string;
   sx?: SxProps;
+  required?: boolean;
 }
 
 export default function TextField({
@@ -18,6 +19,7 @@ export default function TextField({
   sx,
   value,
   variant,
+  required,
 }: TextFieldProps) {
   return (
     <MuiTextField
@@ -26,6 +28,7 @@ export default function TextField({
       sx={sx}
       value={value}
       variant={variant}
+      required={required}
     />
   );
 }

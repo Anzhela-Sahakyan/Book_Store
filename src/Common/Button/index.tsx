@@ -1,15 +1,32 @@
-import { Button as MuiButton, SxProps } from "@mui/material";
+import {
+  Button as MuiButton,
+  ButtonProps as MuiButtonProps,
+  SxProps,
+} from "@mui/material";
 import { ReactNode } from "react";
 
 interface ButtonProps {
   onClick?: () => void;
   children: ReactNode;
+  variant?: MuiButtonProps["variant"];
+  disabled?: boolean;
   sx?: SxProps;
 }
 
-export default function Button({ onClick, children, sx }: ButtonProps) {
+export default function Button({
+  onClick,
+  children,
+  variant,
+  sx,
+  disabled,
+}: ButtonProps) {
   return (
-    <MuiButton variant="contained" sx={sx} onClick={onClick}>
+    <MuiButton
+      disabled={disabled}
+      variant={variant ?? "contained"}
+      sx={sx}
+      onClick={onClick}
+    >
       {children}
     </MuiButton>
   );

@@ -1,6 +1,6 @@
 import { Box, Stack } from "@mui/material";
 
-import { useParams } from "react-router-dom";
+// import { useParams } from "react-router-dom";
 
 import Typography from "../Common/Typography";
 import CardMedia from "../Common/CardMedia";
@@ -9,7 +9,7 @@ import { booksMockData } from "../Data/Books.mock";
 export default function Book() {
   const book = booksMockData[0];
   const { name, img, price, discount = 0, description } = book;
-  const { id } = useParams();
+  // const { id } = useParams();
 
   const priceAfterDiscount = price - price * (discount / 100);
   return (
@@ -59,14 +59,12 @@ export default function Book() {
             )}
           </Box>
 
-          <Typography>
-            <Typography
-              sx={{ margin: "20px 0", fontSize: "25px", fontWeight: "bold" }}
-            >
-              Description
-            </Typography>
-            {description}
+          <Typography
+            sx={{ margin: "20px 0", fontSize: "25px", fontWeight: "bold" }}
+          >
+            Description
           </Typography>
+          <Typography>{description}</Typography>
         </Stack>
       </Box>
     </Box>

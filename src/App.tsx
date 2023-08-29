@@ -7,8 +7,8 @@ import Header from "./Components/Header";
 
 import { Route, Routes } from "react-router-dom";
 import Home from "./Pages/Home.page";
-import BookForm from "./Pages/BookForm.page";
 import Book from "./Pages/Book.page";
+import BookFormModal from "./Components/BookForm";
 
 function App() {
   return (
@@ -16,9 +16,9 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/add-book" element={<BookForm />} />
         <Route path="/books/:id" element={<Book />} />
       </Routes>
+      <BookFormModal />
     </>
   );
 }
