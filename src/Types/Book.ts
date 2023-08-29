@@ -4,4 +4,5 @@ export default interface Book {
   price: number;
   discount?: number;
   img: string;
+  id: number;
 }

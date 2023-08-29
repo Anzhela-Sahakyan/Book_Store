@@ -1,16 +1,11 @@
 import { Box, TextField } from "@mui/material";
-import Btn from "../Button/Btn";
+import Button from "../Common/Button";
 
 export default function SearchBox() {
   return (
     <Box>
-      <TextField
-        id="outlined-basic"
-        label="Search"
-        variant="outlined"
-        sx={{ margin: "5px" }}
-      />
-      <Btn onClick={() => {}} value="Add Book" />
+      <TextField label="Search" variant="outlined" sx={{ margin: "5px" }} />
+      <Button onClick={() => {}}>Add Book</Button>
     </Box>
   );
 }

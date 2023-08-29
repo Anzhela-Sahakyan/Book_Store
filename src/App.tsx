@@ -4,15 +4,22 @@ import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
 
 import Header from "./Components/Header";
-import SearchBox from "./Components/SearchBox";
-import { Box } from "@mui/material";
+
+import { Route, Routes } from "react-router-dom";
+import Home from "./Pages/Home.page";
+import BookForm from "./Pages/BookForm.page";
+import Book from "./Pages/Book.page";
 
 function App() {
   return (
-    <Box>
+    <>
       <Header />
-      <SearchBox />
-    </Box>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/add-book" element={<BookForm />} />
+        <Route path="/books/:id" element={<Book />} />
+      </Routes>
+    </>
   );
 }
 
