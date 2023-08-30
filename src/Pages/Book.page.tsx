@@ -1,19 +1,33 @@
 import { Box, Stack } from "@mui/material";
 
-// import { useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 import Typography from "../Common/Typography";
 import CardMedia from "../Common/CardMedia";
-import { booksMockData } from "../Data/Books.mock";
+import { useEffect, useState } from "react";
+import Book from "../Types/Book";
+import { getBook } from "../api/books/booksApi";
 
 export default function Book() {
-  const book = booksMockData[0];
+  const [book, setBook] = useState<Book>();
+  const { id } = useParams();
+
+  const fetchBook = async () => {
+    setBook(await getBook(Number(id as string)));
+  };
+
+  useEffect(() => {
+    fetchBook();
+  }, []);
+  if (!book) {
+    return "Loading";
+  }
+
   const { name, img, price, discount = 0, description } = book;
-  // const { id } = useParams();
 
   const priceAfterDiscount = price - price * (discount / 100);
   return (
-    <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+    <Box sx={{ display: "flex", justifyContent: "flex-start", gap: 4 }}>
       {/* {id} */}
       <Box>
         <CardMedia
@@ -64,7 +78,7 @@ export default function Book() {
           >
             Description
           </Typography>
-          <Typography>{description}</Typography>
+          <Typography maxWidth={400}>{description}</Typography>
         </Stack>
       </Box>
     </Box>

@@ -6,3 +6,5 @@ export default interface Book {
   img: string;
   id: number;
 }
+
+export type BookToCreate = Omit<Book, "id">;

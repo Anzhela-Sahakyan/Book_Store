@@ -1,13 +1,16 @@
 import { Box } from "@mui/material";
-import { booksMockData } from "../Data/Books.mock";
 import BookCard from "./BookCard";
+import Book from "../Types/Book";
 
-export default function BookCards() {
-  console.log(booksMockData);
+interface BookCardsProps {
+  books: Book[];
+  fetchBooks: () => void;
+}
+export default function BookCards({ books, fetchBooks }: BookCardsProps) {
   return (
     <Box display="flex" gap={4} flexWrap="wrap">
-      {booksMockData.map((book) => (
-        <BookCard key={book.id} book={book} />
+      {books.map((book) => (
+        <BookCard fetchBooks={fetchBooks} key={book.id} book={book} />
       ))}
     </Box>
   );

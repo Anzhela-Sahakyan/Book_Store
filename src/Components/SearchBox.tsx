@@ -1,55 +1,54 @@
-import { Box, TextField } from "@mui/material";
+import { Box, IconButton, TextField } from "@mui/material";
 
 import SearchIcon from "@mui/icons-material/Search";
 
-import Button from "../Common/Button";
+interface SearchBoxProps {
+  value: string;
+  onSearchChange: (query: string) => void;
+  onSearch: () => void;
+}
 
-export default function SearchBox() {
+export default function SearchBox({
+  value,
+  onSearchChange,
+  onSearch,
+}: SearchBoxProps) {
   return (
-    <Box
-      sx={{ display: "flex", justifyContent: "space-between", margin: "10px" }}
-    >
-      <Box sx={{ position: "relative" }}>
-        <TextField
-          label="Search"
-          variant="outlined"
-          sx={{
-            margin: "30px",
-            width: "500px",
-            height: "30px",
+    <Box sx={{ position: "relative" }}>
+      <TextField
+        label="Search"
+        variant="outlined"
+        value={value}
+        sx={{
+          margin: "30px",
+          width: "500px",
+          height: "30px",
+          color: "#e1ddce",
+          "& .MuiOutlinedInput-notchedOutline": {
+            borderColor: "#e1ddce",
+          },
+          "& .MuiInputLabel-root": {
             color: "#e1ddce",
-            "& .MuiOutlinedInput-notchedOutline": {
-              borderColor: "#e1ddce",
-            },
-            "& .MuiInputLabel-root": {
-              color: "#e1ddce",
-            },
-          }}
-        />
+          },
+        }}
+        onChange={(event) => onSearchChange(event.target.value)}
+        onKeyDown={(event) => {
+          if (event.key === "Enter") {
+            onSearch();
+          }
+        }}
+      />
+      <IconButton
+        type="submit"
+        sx={{ position: "absolute", right: "50px", top: "41%" }}
+        onClick={onSearch}
+      >
         <SearchIcon
           sx={{
-            position: "absolute",
-            right: "50px",
-            top: "48%",
             color: "#e1ddce",
           }}
         />
-      </Box>
-      <Button
-        sx={{
-          margin: " 30px",
-          backgroundColor: "#f3eae1",
-          "&:hover": {
-            backgroundColor: "#b59b84",
-          },
-          color: "black",
-          width: "150px",
-          height: "40px",
-        }}
-        onClick={() => {}}
-      >
-        Add Book
-      </Button>
+      </IconButton>
     </Box>
   );
 }

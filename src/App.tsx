@@ -8,7 +8,6 @@ import Header from "./Components/Header";
 import { Route, Routes } from "react-router-dom";
 import Home from "./Pages/Home.page";
 import Book from "./Pages/Book.page";
-import BookFormModal from "./Components/BookForm";
 
 function App() {
   return (
@@ -18,7 +17,6 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/books/:id" element={<Book />} />
       </Routes>
-      <BookFormModal />
     </>
   );
 }
