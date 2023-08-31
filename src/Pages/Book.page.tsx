@@ -27,19 +27,45 @@ export default function Book() {
 
   const priceAfterDiscount = price - price * (discount / 100);
   return (
-    <Box sx={{ display: "flex", justifyContent: "flex-start", gap: 4 }}>
+    <Box
+      sx={{
+        display: "flex",
+        justifyContent: "flex-start",
+        gap: 4,
+        overflow: "hidden",
+        flexDirection: {
+          xs: "column",
+          md: "row",
+        },
+        alignItems: {
+          xs: "center",
+          md: "unset",
+        },
+      }}
+    >
       {/* {id} */}
       <Box>
         <CardMedia
           src={img}
           sx={{
-            width: "342px",
+            // width: "342px",
+
             height: "513px",
-            margin: "30px",
+            margin: {
+              xs: "10px",
+              md: "30px",
+            },
           }}
         />
       </Box>
-      <Box margin={{ margin: "30px" }}>
+      <Box
+        sx={{
+          margin: {
+            xs: "15px",
+            md: "30px",
+          },
+        }}
+      >
         <Typography sx={{ fontSize: "50px" }}>{name}</Typography>
         <Stack
           sx={{

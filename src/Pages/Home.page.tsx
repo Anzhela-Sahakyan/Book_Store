@@ -10,8 +10,8 @@ export default function Home() {
   const [books, setBooks] = useState<Book[]>([]);
   const [query, setQuery] = useState("");
 
-  const fetchBooks = async () => {
-    setBooks(await getBooks(query));
+  const fetchBooks = async (newQuery?: string) => {
+    setBooks(await getBooks(typeof newQuery === "string" ? newQuery : query));
   };
 
   const onQueryChange = (newQuery: string) => {
@@ -26,8 +26,15 @@ export default function Home() {
       <Box
         sx={{
           display: "flex",
-          justifyContent: "space-between",
           margin: "10px",
+          flexDirection: {
+            xs: "column",
+            md: "row",
+          },
+          alignItems: {
+            xs: "center",
+          },
+          justifyContent: "space-between",
         }}
       >
         <SearchBox

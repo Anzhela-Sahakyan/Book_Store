@@ -10,6 +10,7 @@ export default function Header() {
           marginTop: "0",
           textDecoration: "none",
           padding: "10px",
+          overflow: "hidden",
         }}
       >
         <Link to={"/"}>BOOK STORE</Link>

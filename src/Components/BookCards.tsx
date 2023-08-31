@@ -8,7 +8,17 @@ interface BookCardsProps {
 }
 export default function BookCards({ books, fetchBooks }: BookCardsProps) {
   return (
-    <Box display="flex" gap={4} flexWrap="wrap">
+    <Box
+      display="flex"
+      gap={4}
+      flexWrap="wrap"
+      sx={{
+        justifyContent: {
+          xs: "center",
+          md: "unset",
+        },
+      }}
+    >
       {books.map((book) => (
         <BookCard fetchBooks={fetchBooks} key={book.id} book={book} />
       ))}

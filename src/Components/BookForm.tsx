@@ -15,6 +15,7 @@ import ImageUpload from "./ImageUpload";
 import isNotEmpty from "../Validation/Utils/isNotEmpty";
 import { removeNonNumeric } from "../utils/removeNonNumeric";
 import isStringInRange from "../Validation/Utils/isStringInRange";
+import { Margin } from "@mui/icons-material";
 
 interface BookFormProps {
   header: string;
@@ -122,7 +123,19 @@ export default function BookForm({
         },
       }}
     >
-      <Box height="100%">
+      <Box
+        sx={{
+          height: "100%",
+          display: {
+            sm: "flex",
+            md: "unset",
+          },
+          flexDirection: {
+            sm: "column",
+            md: "unset",
+          },
+        }}
+      >
         <Box position="relative">
           <Box
             sx={{
@@ -156,8 +169,13 @@ export default function BookForm({
           <Box
             sx={{
               display: "flex",
-              justifyContent: "space-between",
-              flexDirection: "row",
+              flexDirection: {
+                sm: "column",
+                xs: "column",
+                md: "row",
+                lg: "row",
+                xl: "row",
+              },
               padding: "30px",
             }}
           >
@@ -235,7 +253,10 @@ export default function BookForm({
           </Box>
           <Box
             sx={{
-              position: "absolute",
+              position: {
+                xs: "relative",
+                md: "absolute",
+              },
               bottom: 0,
               left: 0,
               right: 0,
@@ -243,13 +264,25 @@ export default function BookForm({
               display: "flex",
               borderTop: "2px solid",
               borderColor: "primary.main",
+
+              flexDirection: {
+                xs: "column",
+                md: "row",
+              },
             }}
           >
             <Button
               sx={{
                 display: "flex",
                 flexGrow: 2,
-                justifyContent: "flex-start",
+                order: 1,
+                justifyContent: {
+                  xs: "center",
+                  sm: "center",
+                  md: "flex-start",
+                  lg: "flex-start",
+                  xl: "flex-start",
+                },
                 fontSize: "30px",
 
                 backgroundColor: "white",
@@ -257,13 +290,28 @@ export default function BookForm({
                   backgroundColor: "white",
                 },
                 color: "black",
-                width: "500px",
+                width: {
+                  xs: "250px",
+                  sm: "250px",
+                  md: "500px",
+                  lg: "500px",
+                  xl: "500px",
+                },
                 height: "60px",
               }}
               variant="text"
               onClick={handleClose}
             >
-              <Typography fontWeight={400} fontSize={26}>
+              <Typography
+                sx={{
+                  fontWeight: "400",
+                  fontSize: "26px",
+                  margin: {
+                    sm: "80px",
+                    sx: "20px",
+                  },
+                }}
+              >
                 Cancel
               </Typography>
             </Button>
@@ -271,13 +319,23 @@ export default function BookForm({
               sx={{
                 fontSize: "30px",
                 flexGrow: 1,
+                alignItems: "center",
                 backgroundColor: disabled ? "#f7f7f7" : "secondary.main",
                 "&:hover": {
                   backgroundColor: disabled ? "#f7f7f7" : "secondary.dark",
                 },
                 color: "black",
-                width: "300px",
+                // width: "300px",
+                width: {
+                  xs: "250px",
+                  sm: "250px",
+                  md: "300px",
+                  lg: "300px",
+                  xl: "300px",
+                },
+
                 height: "60px",
+                justifyContent: "center",
               }}
               variant="text"
               disabled={disabled || !isValid}

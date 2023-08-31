@@ -4,7 +4,7 @@ import { request } from "../http";
 const BOOKS_API = "/books";
 
 export const getBooks = (query: string = ""): Promise<Book[]> =>
-  request(`${BOOKS_API}?name_like=${query}&description_like=${query}`);
+  request(`${BOOKS_API}?name_like=${query}`);
 
 export const getBook = (id: number): Promise<Book> =>
   request(`${BOOKS_API}/${id}`);
