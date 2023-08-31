@@ -1,6 +1,6 @@
 import { Box } from "@mui/material";
 import BookCard from "./BookCard";
-import Book from "../Types/Book";
+import { Book } from "../Types/Book";
 
 interface BookCardsProps {
   books: Book[];

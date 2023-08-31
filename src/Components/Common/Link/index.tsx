@@ -1,9 +1,9 @@
 import { Link as RouterLink, LinkProps } from "react-router-dom";
 import { Link as MuiLink, LinkProps as MuiLinkProps } from "@mui/material";
 
-type Prios = LinkProps & MuiLinkProps;
+type Props = LinkProps & MuiLinkProps;
 
-function Link(props: Prios) {
+function Link(props: Props) {
   return (
     <MuiLink
       component={RouterLink}

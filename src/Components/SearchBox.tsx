@@ -23,12 +23,12 @@ export default function SearchBox({
           margin: "30px",
           width: "500px",
           height: "30px",
-          color: "#e1ddce",
+          color: "primary.main",
           "& .MuiOutlinedInput-notchedOutline": {
-            borderColor: "#e1ddce",
+            borderColor: "primary.main",
           },
           "& .MuiInputLabel-root": {
-            color: "#e1ddce",
+            color: "primary.main",
           },
         }}
         onChange={(event) => onSearchChange(event.target.value)}
@@ -45,7 +45,7 @@ export default function SearchBox({
       >
         <SearchIcon
           sx={{
-            color: "#e1ddce",
+            color: "primary.main",
           }}
         />
       </IconButton>

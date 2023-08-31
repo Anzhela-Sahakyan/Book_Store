@@ -1,13 +1,14 @@
 import { Box, Card, CardContent, IconButton, Stack } from "@mui/material";
-import Book from "../Types/Book";
-import CardMedia from "../Common/CardMedia";
-import Typography from "../Common/Typography";
-import { Link } from "react-router-dom";
+import { Book } from "../Types/Book";
+import CardMedia from "./Common/CardMedia";
+import Typography from "./Common/Typography";
+import Link from "./Common/Link";
 
 import EditIcon from "@mui/icons-material/Edit";
 import ClearIcon from "@mui/icons-material/Clear";
+
 import { deleteBook } from "../api/books/booksApi";
-import BookFormModal from "./BookForm";
+import BookForm from "./BookForm";
 import { useState } from "react";
 
 interface BookCardProps {
@@ -112,12 +113,15 @@ export default function BookCard({ book, fetchBooks }: BookCardProps) {
           </CardContent>
         </Card>
       </Link>
-      <BookFormModal
-        book={book}
-        header="Edit Book"
-        open={isBookFormOpen}
-        setOpen={setIsBookFormOpen}
-      />
+      {isBookFormOpen && (
+        <BookForm
+          book={book}
+          header="Edit Book"
+          open={isBookFormOpen}
+          setOpen={setIsBookFormOpen}
+          fetchBooks={fetchBooks}
+        />
+      )}
     </>
   );
 }

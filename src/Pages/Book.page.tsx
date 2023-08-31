@@ -2,10 +2,10 @@ import { Box, Stack } from "@mui/material";
 
 import { useParams } from "react-router-dom";
 
-import Typography from "../Common/Typography";
-import CardMedia from "../Common/CardMedia";
+import Typography from "../Components/Common/Typography";
+import CardMedia from "../Components/Common/CardMedia";
 import { useEffect, useState } from "react";
-import Book from "../Types/Book";
+import { Book } from "../Types/Book";
 import { getBook } from "../api/books/booksApi";
 
 export default function Book() {

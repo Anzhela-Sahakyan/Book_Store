@@ -11,6 +11,11 @@ interface TextFieldProps {
   value?: string;
   sx?: SxProps;
   required?: boolean;
+  multiline?: boolean;
+  type?: MuiTextFieldProps["type"];
+  name?: string;
+  maxRows?: number;
+  InputProps?: MuiTextFieldProps["inputProps"];
 }
 
 export default function TextField({
@@ -20,15 +25,34 @@ export default function TextField({
   value,
   variant,
   required,
+  multiline,
+  type,
+  name,
+  maxRows,
+  InputProps,
 }: TextFieldProps) {
+  const defaultStyle = {
+    color: "primary.main",
+    "& .MuiOutlinedInput-notchedOutline": {
+      borderColor: "primary.main",
+    },
+    "& .MuiInputLabel-root": {
+      color: "primary.main",
+    },
+  };
   return (
     <MuiTextField
       label={label}
       onChange={onChange}
-      sx={sx}
+      sx={{ ...defaultStyle, ...sx }}
       value={value}
       variant={variant}
       required={required}
+      multiline={multiline}
+      type={type}
+      name={name}
+      maxRows={maxRows}
+      inputProps={InputProps}
     />
   );
 }

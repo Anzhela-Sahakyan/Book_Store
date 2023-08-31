@@ -3,7 +3,7 @@ import BookCards from "../Components/BookCards";
 import SearchBox from "../Components/SearchBox";
 import AddBookButton from "../Components/AddBookButton";
 import { useEffect, useState } from "react";
-import Book from "../Types/Book";
+import { Book } from "../Types/Book";
 import { getBooks } from "../api/books/booksApi";
 
 export default function Home() {
@@ -35,7 +35,7 @@ export default function Home() {
           onSearch={fetchBooks}
           onSearchChange={onQueryChange}
         />
-        <AddBookButton />
+        <AddBookButton fetchBooks={fetchBooks} />
       </Box>
       <BookCards fetchBooks={fetchBooks} books={books} />
     </Box>

@@ -1,4 +1,4 @@
-import Book, { BookToCreate } from "../../Types/Book";
+import { BookToCreate, Book } from "../../Types/Book";
 import { request } from "../http";
 
 const BOOKS_API = "/books";
@@ -16,4 +16,4 @@ export const deleteBook = (id: number): Promise<Book> =>
   request(`${BOOKS_API}/${id}`, "delete");
 
 export const updateBook = (book: Book): Promise<Book> =>
-  request(BOOKS_API, "patch", book);
+  request(`${BOOKS_API}/${book.id}`, "put", book);
