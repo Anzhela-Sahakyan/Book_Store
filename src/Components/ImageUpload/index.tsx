@@ -16,16 +16,14 @@ export default function ImageUpload({
 }: ImageUploadProps) {
   const handleImageUpload = (image?: File) => {
     if (image) {
-      if (image) {
-        const reader = new FileReader();
+      const reader = new FileReader();
 
-        reader.onload = (event) => {
-          const base64String = event.target?.result;
-          onImageChange(base64String as string);
-        };
+      reader.onload = (event) => {
+        const base64String = event.target?.result;
+        onImageChange(base64String as string);
+      };
 
-        reader.readAsDataURL(image);
-      }
+      reader.readAsDataURL(image);
     }
   };
 

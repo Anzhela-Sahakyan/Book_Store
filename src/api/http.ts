@@ -7,7 +7,7 @@ export const request = async (
 ) => {
   let options: RequestInit = {
     method,
-    body: JSON.stringify(body), // Convert data to JSON and set as the request body
+    body: JSON.stringify(body),
   };
   if (method === "put" || method === "post") {
     options = {
@@ -17,6 +17,6 @@ export const request = async (
       },
     };
   }
-  const data = await fetch(`${HOST}${url}`, options);
-  return await data.json();
+  const res = await fetch(`${HOST}${url}`, options);
+  return res.json();
 };

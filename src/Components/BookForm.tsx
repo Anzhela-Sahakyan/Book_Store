@@ -56,10 +56,6 @@ const validate = (field: keyof typeof defaultBookData, value?: string) => {
   return isValid;
 };
 
-const isXsScreen = useMediaQuery((theme: Theme) =>
-  theme.breakpoints.down("xs")
-);
-
 export default function BookForm({
   header,
   book,
@@ -71,7 +67,6 @@ export default function BookForm({
     setNewBook(defaultBookData);
     setOpen(false);
   };
-  const disabled = false;
 
   const [newBook, setNewBook] = useState<BookToCreate>({
     name: book?.name ?? defaultBookData.name,
@@ -104,16 +99,20 @@ export default function BookForm({
     }));
   };
 
-  const handleImageChange = (image: string) => {
-    setNewBook((state) => ({ ...state, img: image }));
+  const handleImageChange = (img: string) => {
+    setNewBook((state) => ({ ...state, img }));
   };
 
-  const isValid = Object.keys(newBook).every((field) => {
+  const isValid = Object.keys(defaultBookData).every((field) => {
     return validate(
       field as keyof typeof defaultBookData,
       String(newBook[field as keyof typeof defaultBookData])
     );
   });
+
+  const isXsScreen = useMediaQuery((theme: Theme) =>
+    theme.breakpoints.down("xs")
+  );
 
   return (
     <Modal
@@ -311,16 +310,16 @@ export default function BookForm({
                 fontSize: "30px",
                 flexGrow: 1,
                 alignItems: "center",
-                backgroundColor: disabled ? "#f7f7f7" : "secondary.main",
+                backgroundColor: !isValid ? "#f7f7f7" : "secondary.main",
                 "&:hover": {
-                  backgroundColor: disabled ? "#f7f7f7" : "secondary.dark",
+                  backgroundColor: !isValid ? "#f7f7f7" : "secondary.dark",
                 },
                 color: "black",
                 height: "60px",
                 justifyContent: "center",
               }}
               variant="text"
-              disabled={disabled || !isValid}
+              disabled={!isValid}
               onClick={handleSaveClick}
             >
               <Typography fontWeight={400} fontSize={26}>
