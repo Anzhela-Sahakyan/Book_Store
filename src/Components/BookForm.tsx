@@ -1,4 +1,4 @@
-import { Box, IconButton, Stack } from "@mui/material";
+import { Box, IconButton, Stack, Theme, useMediaQuery } from "@mui/material";
 import Modal from "@mui/material/Modal";
 import TextField from "./Common/TextField";
 import Button from "./Common/Button";
@@ -15,7 +15,6 @@ import ImageUpload from "./ImageUpload";
 import isNotEmpty from "../Validation/Utils/isNotEmpty";
 import { removeNonNumeric } from "../utils/removeNonNumeric";
 import isStringInRange from "../Validation/Utils/isStringInRange";
-import { Margin } from "@mui/icons-material";
 
 interface BookFormProps {
   header: string;
@@ -56,6 +55,10 @@ const validate = (field: keyof typeof defaultBookData, value?: string) => {
   const isValid = fieldValidators[field](value);
   return isValid;
 };
+
+const isXsScreen = useMediaQuery((theme: Theme) =>
+  theme.breakpoints.down("xs")
+);
 
 export default function BookForm({
   header,
@@ -123,15 +126,11 @@ export default function BookForm({
         },
       }}
     >
-      <Box
+      <Stack
         sx={{
           height: "100%",
           display: {
             sm: "flex",
-            md: "unset",
-          },
-          flexDirection: {
-            sm: "column",
             md: "unset",
           },
         }}
@@ -169,14 +168,15 @@ export default function BookForm({
           <Box
             sx={{
               display: "flex",
-              flexDirection: {
-                sm: "column",
-                xs: "column",
-                md: "row",
-                lg: "row",
-                xl: "row",
-              },
               padding: "30px",
+            }}
+            flexDirection={{
+              xs: "column",
+              sm: "row",
+            }}
+            alignItems={{
+              xs: "center",
+              sm: "unset",
             }}
           >
             <Stack>
@@ -200,11 +200,11 @@ export default function BookForm({
                   label="Description"
                   value={newBook.description}
                   name="description"
-                  maxRows={5}
+                  maxRows={isXsScreen ? 2 : 5}
                   onChange={onChange}
                 />
               </Stack>
-              <Box sx={{ display: "flex", flexDirection: "row" }}>
+              <Box sx={{ display: "flex" }}>
                 <TextField
                   required
                   sx={{
@@ -253,35 +253,33 @@ export default function BookForm({
           </Box>
           <Box
             sx={{
+              width: "100%",
               position: {
-                xs: "relative",
+                xs: "unset",
                 md: "absolute",
               },
               bottom: 0,
               left: 0,
               right: 0,
-              transform: "translateY(-145%)",
+              transform: {
+                sm: "unset",
+                md: "translateY(-145%)",
+              },
               display: "flex",
               borderTop: "2px solid",
               borderColor: "primary.main",
-
-              flexDirection: {
-                xs: "column",
-                md: "row",
-              },
             }}
           >
             <Button
               sx={{
                 display: "flex",
-                flexGrow: 2,
-                order: 1,
+                flexGrow: {
+                  xs: 1,
+                  md: 2,
+                },
                 justifyContent: {
                   xs: "center",
-                  sm: "center",
                   md: "flex-start",
-                  lg: "flex-start",
-                  xl: "flex-start",
                 },
                 fontSize: "30px",
 
@@ -290,13 +288,6 @@ export default function BookForm({
                   backgroundColor: "white",
                 },
                 color: "black",
-                width: {
-                  xs: "250px",
-                  sm: "250px",
-                  md: "500px",
-                  lg: "500px",
-                  xl: "500px",
-                },
                 height: "60px",
               }}
               variant="text"
@@ -325,15 +316,6 @@ export default function BookForm({
                   backgroundColor: disabled ? "#f7f7f7" : "secondary.dark",
                 },
                 color: "black",
-                // width: "300px",
-                width: {
-                  xs: "250px",
-                  sm: "250px",
-                  md: "300px",
-                  lg: "300px",
-                  xl: "300px",
-                },
-
                 height: "60px",
                 justifyContent: "center",
               }}
@@ -347,7 +329,7 @@ export default function BookForm({
             </Button>
           </Box>
         </Stack>
-      </Box>
+      </Stack>
     </Modal>
   );
 }
