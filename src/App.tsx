@@ -10,7 +10,7 @@ import Header from "./Components/Header";
 import { Route, Routes } from "react-router-dom";
 import Home from "./Pages/Home.page";
 import Book from "./Pages/Book.page";
-import { CssBaseline, ThemeProvider, useTheme } from "@mui/material";
+import { Box, CssBaseline, ThemeProvider, useTheme } from "@mui/material";
 
 function App() {
   const outerTheme = useTheme();
@@ -18,11 +18,13 @@ function App() {
     <>
       <ThemeProvider theme={theme(outerTheme)}>
         <CssBaseline />
-        <Header />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/books/:id" element={<Book />} />
-        </Routes>
+        <Box sx={{ fontFamily: "cursive" }}>
+          <Header />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/books/:id" element={<Book />} />
+          </Routes>
+        </Box>
       </ThemeProvider>
     </>
   );

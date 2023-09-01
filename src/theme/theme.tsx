@@ -4,20 +4,22 @@ import { createTheme, Theme } from "@mui/material/styles";
 
 const theme = (outerTheme: Theme) =>
   createTheme({
-    // typography: {
-    //   fontFamily: [
-    //     "-apple-system",
-    //     "BlinkMacSystemFont",
-    //     '"Segoe UI"',
-    //     "Roboto",
-    //     '"Helvetica Neue"',
-    //     "Arial",
-    //     "sans-serif",
-    //     '"Apple Color Emoji"',
-    //     '"Segoe UI Emoji"',
-    //     '"Segoe UI Symbol"',
-    //   ].join(","),
-    // },
+    typography: {
+      fontFamily: [
+        // "-apple-system",
+        // "BlinkMacSystemFont",
+        // '"Segoe UI"',
+        // "Roboto",
+        // '"Helvetica Neue"',
+        // "Arial",
+        // "sans-serif",
+        // '"Apple Color Emoji"',
+        // '"Segoe UI Emoji"',
+        // '"Segoe UI Symbol"',
+        // "lobster",
+        "cursive",
+      ].join(","),
+    },
     palette: {
       mode: outerTheme.palette.mode,
       primary: {
