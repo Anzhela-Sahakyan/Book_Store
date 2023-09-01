@@ -5,7 +5,7 @@ import { createTheme, Theme } from "@mui/material/styles";
 const theme = (outerTheme: Theme) =>
   createTheme({
     typography: {
-      fontFamily: ['"Segoe UI Symbol"'].join(","),
+      fontFamily: ["Roboto"].join(","),
     },
     palette: {
       mode: outerTheme.palette.mode,
