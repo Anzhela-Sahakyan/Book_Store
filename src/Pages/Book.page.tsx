@@ -43,13 +43,10 @@ export default function Book() {
         },
       }}
     >
-      {/* {id} */}
       <Box>
         <CardMedia
           src={img}
           sx={{
-            // width: "342px",
-
             height: "513px",
             margin: {
               xs: "10px",

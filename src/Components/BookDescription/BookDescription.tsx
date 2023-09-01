@@ -5,7 +5,7 @@ interface BookCardProps {
 }
 
 export default function BookDescription({ book }: BookCardProps) {
-  const { name, img, price, discount = 0, id } = book;
+  const { name, img, price } = book;
   return (
     <div>
       {img}

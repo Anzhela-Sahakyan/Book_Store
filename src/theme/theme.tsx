@@ -5,20 +5,7 @@ import { createTheme, Theme } from "@mui/material/styles";
 const theme = (outerTheme: Theme) =>
   createTheme({
     typography: {
-      fontFamily: [
-        // "-apple-system",
-        // "BlinkMacSystemFont",
-        // '"Segoe UI"',
-        // "Roboto",
-        // '"Helvetica Neue"',
-        // "Arial",
-        // "sans-serif",
-        // '"Apple Color Emoji"',
-        // '"Segoe UI Emoji"',
-        // '"Segoe UI Symbol"',
-        // "lobster",
-        "cursive",
-      ].join(","),
+      fontFamily: ['"Segoe UI Symbol"'].join(","),
     },
     palette: {
       mode: outerTheme.palette.mode,
@@ -67,38 +54,6 @@ const theme = (outerTheme: Theme) =>
           },
         },
       },
-      // MuiFilledInput: {
-      //   styleOverrides: {
-      //     root: {
-      //       "&:before, &:after": {
-      //         borderBottom: "2px solid var(--TextField-brandBorderColor)",
-      //       },
-      //       "&:hover:not(.Mui-disabled, .Mui-error):before": {
-      //         borderBottom: "2px solid var(--TextField-brandBorderHoverColor)",
-      //       },
-      //       "&.Mui-focused:after": {
-      //         borderBottom:
-      //           "2px solid var(--TextField-brandBorderFocusedColor)",
-      //       },
-      //     },
-      //   },
-      // },
-      // MuiInput: {
-      //   styleOverrides: {
-      //     root: {
-      //       "&:before": {
-      //         borderBottom: "2px solid var(--TextField-brandBorderColor)",
-      //       },
-      //       "&:hover:not(.Mui-disabled, .Mui-error):before": {
-      //         borderBottom: "2px solid var(--TextField-brandBorderHoverColor)",
-      //       },
-      //       "&.Mui-focused:after": {
-      //         borderBottom:
-      //           "2px solid var(--TextField-brandBorderFocusedColor)",
-      //       },
-      //     },
-      //   },
-      // },
     },
   });
 
